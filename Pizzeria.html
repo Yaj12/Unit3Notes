@@ -39,8 +39,12 @@
                         <label for="chicago">Chicago/Deep-Dish Pizza</label>
                     </div>
                     <div>
-                        <input type="radio" id="Little Ceasers" name="pizza">
-                        <label for="chicago">little Ceasers Pizza</label>
+                        <input type="radio" id="littleCeasers" name="pizza">
+                        <label for="littleCeasers">little Ceasers Pizza</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="hawaiian" name="pizza">
+                        <label for="hawaiian">Hawaiian Pizza</label>
                     </div>
                 </fieldset>
             </div>
@@ -58,6 +62,10 @@
                     <div>
                         <input type="radio" id="large" name="size">
                         <label for="large">Large</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="extraLarge" name="size">
+                        <label for="extraLarge">Extra Large</label>
                     </div>
                 </fieldset>
             </div>
@@ -80,6 +88,10 @@
                         <input type="checkbox" id="sausage" name="sausage" value="sausage">
                         <label for="sausage">Sausage</label>
                     </div>
+                    <div>
+                        <input type="checkbox" id="pineapple" name="pineapple" value="pineapple">
+                        <label for="pineapple">Pineapple</label>
+                    </div>
                 </fieldset>
             </div>
             <div>
@@ -101,7 +113,7 @@
                     <legend>Special:</legend>
                     <label for="SpecialRequests">Special Requests:</label>
                     <textarea id="SpecialRequests" name="SpecialRequests" rows="4" cols="10"
-                              placeholder="Allergic to peanuts, substitution, etc."></textarea>
+                              placeholder="Allergic to cheese, substitution, etc."></textarea>
                 </fieldset>
             </div>
             <button type="button" onclick="alert('Free today for our Grand Opening!')">Calculate Cost</button>
