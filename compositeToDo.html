@@ -54,43 +54,46 @@
 
     submitButton.addEventListener('click', function () {
         let toDoItem = item.value;
-        addItemToIncompleteTable(toDoItem);
+        addItemToTable(toDoItem, incomplete);
         item.value = "";
     })
 
-    function addItemToIncompleteTable(toDoItem) {
+    function addItemToTable(item, table){
+        let tableName = table.id;
         let newRow = document.createElement('tr');
         let descriptionTag = document.createElement('td');
-        descriptionTag.textContent = toDoItem;
-        newRow.appendChild(descriptionTag);
-        let actionTag = document.createElement('td');
-        let action = document.createElement('button');
-        action.textContent = "Mark Complete";
-        action.addEventListener('click', function(){
-            newRow.remove();
-            addItemToCompleteTable(toDoItem);
-        })
-        actionTag.appendChild(action);
-        newRow.appendChild(actionTag);
-        incomplete.appendChild(newRow);
-    }
 
-    function addItemToCompleteTable(toDoItem) {
-        let newRow = document.createElement('tr');
-        let descriptionTag = document.createElement('td');
-        descriptionTag.textContent = toDoItem;
+        descriptionTag.textContent = item;
         newRow.appendChild(descriptionTag);
+
         let actionTag = document.createElement('td');
         let action = document.createElement('button');
-        action.textContent = "Mark Incomplete";
+
+        if (tableName === 'incomplete'){
+            action.textContent = "Mark Complete";
+        } else if (tableName === 'complete') {
+            action.textContent = "Mark Incomplete";
+
+        } else {
+            console.log('FAILED');
+        }
+
         action.addEventListener('click', function(){
             newRow.remove();
-            addItemToCompleteTable(toDoItem);
-        })
+            if (tableName === 'incomplete'){
+                addItemToTable(item, complete)
+            } else if (tableName === 'complete') {
+                addItemToTable(item, incomplete)
+            }
+        });
+
         actionTag.appendChild(action);
         newRow.appendChild(actionTag);
-        complete.appendChild(newRow);;
+        if (tableName === 'incomplete'){
+            incomplete.appendChild(newRow);
+        } else if (tableName === 'complete') {
+            complete.appendChild(newRow);
+        }
     }
-    
 </script>
 </html>
