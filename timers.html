@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <button id="trigger">Click Me!</button>
+        <button id="interval">Repeat</button>
+        <button id="cancel">Cancel Repeat</button>
+        <button id="remove">Remove</button>
+        <button id="color">Change Color</button>
+    </div>
+
+</div>
+
+<script>
+const myButton = document.getElementById("trigger");
+const repeatButton = document.getElementById("interval");
+const cancelButton = document.getElementById("cancel");
+let interval;
+
+const removeButton = document.getElementById("remove");
+
+const colorButton = document.getElementById("color");
+
+myButton.addEventListener('click', function(){
+    //This will happen in 1000ms, or 1 second
+    setTimeout(function(){
+      console.log("I was clicked 1 second ago.")
+    }, 1000);
+
+    //Not in a timeout, so does not wait
+    console.log("Happens right away");
+})
+
+repeatButton.addEventListener('click', function(){
+  setInterval(function(){
+    console.log("I happen every second.")
+  }, 1000)
+});
+
+cancelButton.addEventListener('click', function(){
+  if (interval){
+      clearInterval(interval);
+      interval = null;
+  }
+});
+
+removeButton.addEventListener('click', function(){
+    if(){
+
+    }
+});
+
+colorButton.addEventListener('click', function(){
+    removeBGColor();
+    content.classList.add('blue');
+});
+
+
+
+</script>
+</body>
+</html>
